@@ -1,27 +1,65 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Solvae design tokens */
+    --primary: #1b3d35;
+    --primary-fg: #ffffff;
+    --bg: #ffffff;
+    --hero-bg-start: #eaf4f2;
+    --hero-bg-end: #ffffff;
+    --muted: #f5f5f5;
+    --muted-fg: #6b7280;
+    --text: #111827;
+    --card-bg: #ffffff;
+    --dark-section: #111f1c;
+    --border: #e5e7eb;
+
+    /* CTAs destacados en rojo (navbar + hero + cards) */
+    --cta-red: #dc2626;
+    --cta-red-hover: #b91c1c;
+    --cta-red-fg: #ffffff;
+
+    /* shadcn ↔ tokens */
+    --background: var(--bg);
+    --foreground: var(--text);
+    --card: var(--card-bg);
+    --card-foreground: var(--text);
+    --popover: var(--bg);
+    --popover-foreground: var(--text);
+    --primary-foreground: var(--primary-fg);
+    --secondary: var(--muted);
+    --secondary-foreground: var(--text);
+    --muted-foreground: var(--muted-fg);
+    --accent: var(--muted);
+    --accent-foreground: var(--text);
+    --destructive: oklch(0.577 0.245 27.325);
+    --input: var(--border);
+    --ring: #1b3d35;
+    --radius: 0.625rem;
+  }
+  .dark {
+    --background: var(--dark-section);
+    --foreground: oklch(0.985 0 0);
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  }
+  html {
+    @apply font-sans;
   }
 }
