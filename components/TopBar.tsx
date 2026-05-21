@@ -34,10 +34,11 @@ const social = [
 export function TopBar() {
   return (
     <div className="bg-[var(--cta-red)] text-[var(--cta-red-fg)]">
-      <div className="mx-auto flex flex-col gap-2 px-4 py-2.5 text-xs sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6 sm:gap-y-1 sm:px-6 sm:py-2 sm:text-sm md:px-8 lg:px-10 xl:px-12">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 sm:gap-x-4">
+      <div className="mx-auto flex flex-row items-center justify-between gap-2 px-4 py-2 text-xs sm:flex-wrap sm:justify-between sm:gap-x-6 sm:gap-y-1 sm:px-6 sm:py-2 sm:text-sm md:px-8 lg:px-10 xl:px-12">
+        <div className="flex min-w-0 flex-col gap-0.5 leading-snug sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3 sm:gap-y-1 sm:gap-x-4">
           <span className="font-semibold whitespace-nowrap">
-            Llámanos o escríbenos
+            <span className="sm:hidden">Llámanos</span>
+            <span className="hidden sm:inline">Llámanos o escríbenos</span>
           </span>
           <span className="hidden h-3 w-px bg-white/30 sm:block" aria-hidden />
           <a
@@ -54,13 +55,13 @@ export function TopBar() {
           </a>
           <a
             href="mailto:atencionalcliente@solvae.pe"
-            className="break-all transition-opacity hover:opacity-80 sm:break-normal"
+            className="hidden break-all transition-opacity hover:opacity-80 sm:inline sm:break-normal"
           >
             atencionalcliente@solvae.pe
           </a>
         </div>
 
-        <ul className="flex items-center gap-2.5 sm:shrink-0">
+        <ul className="flex shrink-0 items-center gap-2 sm:gap-2.5">
           {social.map(({ name, href, Icon }) => (
             <li key={name}>
               <Link
